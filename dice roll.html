@@ -1,0 +1,43 @@
+<html>
+   <head>
+       <title>RPG Dice Roller</title>
+       <link rel="icon" href="https://www.freeiconspng.com/uploads/d20-icon-19.jpeg">
+       <link rel="stylesheet" type="text/css" href="dice.css" />
+   </head>
+   
+   <body>
+       <div id=container>
+            <h1> ndX Dice Roller </h1>
+
+            <p><label>Number of Dice to be rolled (n):</label>
+            <input class="answer" type="number" id="noOfDice" value="1"></p>
+
+            <p><label>Number of sides on dice (X):</label>  
+            <input class="answer" type="number" id="noOfSides" value="20"></p>
+
+            <button onclick="roll()">Roll!</button>
+            <br>
+            <br>
+            <p> Total Number is: <b><span= id="total"></span></b></p>
+            <p id="demo"></p>
+        </div>
+       <script>
+       console.log("Ready!");
+           const roll=()=>{
+               let noOfDice = document.getElementById("noOfDice").value;
+               let noOfSides = document.getElementById("noOfSides").value;
+               let totalno= 0;
+               let rolltext ="";
+               
+               for (; noOfDice>0; ) {
+               rollno = Math.floor((Math.random() * noOfSides) + 1);
+                   totalno += rollno;
+                   rolltext += "<br>You rolled a " + rollno;
+                   noOfDice --;
+                   document.getElementById("demo").innerHTML = rolltext;
+               }
+               document.getElementById("total").innerHTML = totalno;
+           }  
+       </script>
+   </body>
+</html>
